@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Customer</h2>
+
+<form method="POST" action="{{ url_for('customer_page') }}" class="mb-4">
+    <div class="form-group">
+        <label for="name">Customer Name</label>
+        <input type="text" class="form-control" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Customer Email</label>
+        <input type="email" class="form-control" name="email" required>
+    </div>
+    <button type="submit" class="btn btn-success mt-2">Add Customer</button>
+</form>
+
+<h3>Customer List</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer[0] }}</td>
+            <td>{{ customer[1] }}</td>
+            <td>{{ customer[2] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

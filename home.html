@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">Welcome to Store Billing Software</h1>
+
+<p class="text-center"><b>Use the navigation menu to manage customers, products, orders, and billing.</b></p>
+<div class="d-flex justify-content-center mt-4">
+    <div class="btn-group-vertical">
+        <a href="{{ url_for('product_page') }}" class="btn btn-primary mb-2">View Products</a>
+        <a href="{{ url_for('customer_page') }}" class="btn btn-success mb-2">Add Customer</a>
+        <a href="{{ url_for('order_page') }}" class="btn btn-warning mb-2">Place Order</a>
+        <a href="{{ url_for('billing') }}" class="btn btn-info mb-2">Billing</a>
+    </div>
+</div>
+{% endblock %}

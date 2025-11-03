@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Place Order</h2>
+  <form method="POST" class="mb-4">
+    <div class="form-group">
+      <label for="customer_id">Customer:</label>
+      <select name="customer_id" class="form-control" required>
+        {% for customer in customers %}
+          <option value="{{ customer[0] }}">{{ customer[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="employee_id">Employee:</label>
+      <select name="employee_id" class="form-control" required>
+        {% for employee in employees %}
+          <option value="{{ employee[0] }}">{{ employee[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="product_id">Product:</label>
+      <select name="product_id" class="form-control" required>
+        {% for product in products %}
+          <option value="{{ product[0] }}">{{ product[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group mt-2">
+      <label for="quantity">Quantity:</label>
+      <input type="number" name="quantity" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Place Order</button>
+  </form>
+
+  <h3>Orders</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Customer</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      <tr>
+        <td>{{ order[0] }}</td>
+        <td>{{ order[1] }}</td>
+        <td>{{ order[2] }}</td>
+        <td>{{ order[3] }}</td>
+        <td>{{ order[4] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
